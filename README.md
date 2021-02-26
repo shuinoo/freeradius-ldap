@@ -27,9 +27,9 @@ docker run -it --rm --name freeradius-ldap \
 
 # TLS
     use TLS encrypted connections to the LDAP database by using the StartTLS extended operation. 
-    startTLS operation is supposed to be  used with normal ldap connections instead of  using 
-    ldaps (port 636) connections, you must set start_tls value is yes and special /path/to/ca_file, 
-    /path/to/certificate_file, /path/to/private_key_file 
+    startTLS operation is supposed to be  used with normal ldap connections instead of  using ld
+    aps (port 636) connections, you must set start_tls value is yes and specified /path/to/ca_fi
+    le, /path/to/certificate_file, /path/to/private_key_file 
 
 ```
 docker run -it --rm --name freeradius-ldap \
@@ -41,7 +41,8 @@ docker run -it --rm --name freeradius-ldap \
         -e RADIUS_LDAP_PASSWD=password \
         -e LDAP_TLS=yes \
         -e LDAP_CA_FILE=/path/to/ca_file \
-        -e LDAP_CERTIFICATE_FILE=path/to/certificate_file \
+        -e LDAP_CERTIFICATE_FILE=/path/to/certificate_file \
+        -e LDAP_PRIVATE_KEY_FILE=/path/to/private_key_file \
         shuinoo/freeradius-ldap
 ```
     Note: require_cert: Certificate Verification requirements. Can be: 
